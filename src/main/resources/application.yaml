@@ -2,9 +2,10 @@ spring:
   application:
     name: finanzas-personales
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/finanzas_db}
-    username: ${DB_USERNAME:finanzas_user}
-    password: ${DB_PASSWORD:finanzas_pass}
+    url: jdbc:postgresql://localhost:5433/finanzas_db
+    username: finanzas_user
+    password: finanzas_pass
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
@@ -13,7 +14,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         default_schema: finanzas
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     schemas: finanzas
   data:
